@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { Task, TaskStatus } from '../../task.model';
+import { TASK_STATUS_OPTIONS_TOKEN, type Task, type TaskStatus } from '../../task.model';
+// import { TaskService } from '../../../services/task.service';
+import { TaskServiceToken } from '../../../../main';
 
 @Component({
   selector: 'app-task-item',
@@ -13,6 +15,11 @@ import { Task, TaskStatus } from '../../task.model';
 })
 export class TaskItemComponent {
   task = input.required<Task>();
+
+  // private taskServ = inject(TaskService);
+  private taskServ = inject(TaskServiceToken);
+  protected taskStatusOptnToken = inject(TASK_STATUS_OPTIONS_TOKEN);
+
   taskStatus = computed(() => {
     switch (this.task().status) {
       case 'OPEN':
@@ -42,5 +49,7 @@ export class TaskItemComponent {
       default:
         break;
     }
+
+    this.taskServ.updateTaskStatus(taskId, newStatus);
   }
 }
