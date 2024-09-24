@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, ElementRef, inject, viewChild } from '@angular/core';
+import { Component, ElementRef, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Inject } from '@angular/core';
 
 import { TaskService } from '../../services/task.service';
+import { TaskServiceToken } from '../../../main';
 
 @Component({
   selector: 'app-new-task',
@@ -13,7 +15,9 @@ import { TaskService } from '../../services/task.service';
 })
 export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
-  private taskServ = inject(TaskService);
+
+  // constructor(private taskServ: TaskService) {}
+  constructor(@Inject(TaskServiceToken) private taskServ: TaskService) {}
 
   onAddTask(title: string, description: string) {
     this.formEl()?.nativeElement.reset();
