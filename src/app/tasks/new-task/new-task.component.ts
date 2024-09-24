@@ -18,6 +18,10 @@ export class NewTaskComponent {
   onAddTask(title: string, description: string) {
     this.formEl()?.nativeElement.reset();
 
-    this.taskServ.addTask({ title, description });
+    if (!title.trim()) {
+      return;
+    }
+
+    this.taskServ.addTask({ title: title.trim(), description });
   }
 }
