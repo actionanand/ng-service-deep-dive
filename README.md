@@ -224,3 +224,12 @@ To configure the pre-commit hook, simply add a `precommit` npm script. We want t
 
 - [GitHub Actions for Angular](https://github.com/rodrigokamada/angular-github-actions)
 - [Angular 16 - milestone release](https://github.com/actionanand/ng16-signal-milestone-release)
+
+## The expanded provider configuration is an object literal with two properties:
+
+- The `provide` property holds the token that serves as the key for consuming the dependency value.
+- The second property is a provider definition object, which tells the injector how to create the dependency value. The provider-definition can be one of the following:
+  1. `useClass` - this option tells Angular DI to instantiate a provided class when a dependency is injected
+  2. `useExisting` - allows you to alias a token and reference any existing one.
+  3. `useFactory` - allows you to define a function that constructs a dependency.
+  4. `useValue` - provides a static value that should be used as a dependency.
