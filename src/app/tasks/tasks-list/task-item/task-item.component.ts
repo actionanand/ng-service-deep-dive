@@ -2,7 +2,7 @@
 import { Component, computed, inject, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { TASK_STATUS_OPTIONS_TOKEN, type Task, type TaskStatus } from '../../task.model';
+import { TASK_STATUS_OPTIONS_TOKEN, type Task, type TaskStatus } from '../../../models/task.model';
 // import { TaskService } from '../../../services/task.service';
 import { TaskServiceToken } from '../../../../main';
 

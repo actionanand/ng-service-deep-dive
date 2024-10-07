@@ -1,7 +1,7 @@
 import { inject, signal } from '@angular/core';
 // import { Injectable } '@angular/core';
 
-import { type Task, type TaskStatus } from '../tasks/task.model';
+import { type Task, type TaskStatus } from '../models/task.model';
 import { LogService } from './log.service';
 
 /*
