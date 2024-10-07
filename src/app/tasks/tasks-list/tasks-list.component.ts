@@ -2,7 +2,7 @@ import { Component, computed, inject, signal, Inject } from '@angular/core';
 
 import { TaskItemComponent } from './task-item/task-item.component';
 import { TaskServiceToken } from '../../../main';
-import { TaskStatusOptionProvider, TASK_STATUS_OPTIONS_TOKEN, type TaskStatusOptions } from '../task.model';
+import { TaskStatusOptionProvider, TASK_STATUS_OPTIONS_TOKEN, type TaskStatusOptions } from '../../models/task.model';
 // import { TaskService } from '../../services/task.service';
 
 @Component({
